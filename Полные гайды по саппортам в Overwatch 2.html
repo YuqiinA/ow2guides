@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///C:/Users/Anastasia/Desktop/%D1%81%D0%B0%D0%B9%D1%82/home.html#heroes -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полные гайды по саппортам в Overwatch 2</title>
+    <style>
+        /* Современная Overwatch-палитра */
+        :root {
+            --ow-dark: #0f1923;
+            --ow-darker: #0a141e;
+            --ow-accent: #00f5d4;
+            --ow-accent-dark: #00c4a9;
+            --ow-text: #ffffff;
+            --ow-text-secondary: #b3b3b3;
+            --ow-mercy: #ff6bcd;
+            --ow-moira: #9d4edd;
+            --ow-brig: #ffde3d;
+            --ow-ana: #8a8d8f;
+            --ow-bap: #79c7b8;
+            --ow-zen: #f5cb35;
+            --ow-lucio: #7dcc33;
+            --ow-kiri: #ff6b81;
+            --ow-lw: #4caf50;
+            --ow-danger: #ff2d55;
+            --ow-map: #4a90e2;
+            --ow-overlay: rgba(15, 25, 35, 0.85);
+        }
+
+        /* Сброс и базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial Narrow', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        body {
+            background-color: var(--ow-dark);
+            color: var(--ow-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Типографика в стиле Overwatch */
+        h1, h2, h3, h4 {
+            font-family: 'Bahnschrift', 'Arial Narrow', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--ow-accent), #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: var(--ow-accent);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ow-accent), transparent);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--ow-text);
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: var(--ow-accent);
+            margin: 1.5rem 0 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(0, 245, 212, 0.3);
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--ow-text-secondary);
+            max-width: 800px;
+        }
+
+        /* Секции */
+        section {
+            min-height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--ow-overlay);
+            z-index: -1;
+        }
+
+        /* Кнопки в стиле OW */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--ow-accent);
+            border: 2px solid var(--ow-accent);
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 212, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            background: var(--ow-accent);
+            color: var(--ow-dark);
+            box-shadow: 0 0 15px var(--ow-accent);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Главный экран */
+        #hero {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt12c536b770bfdcd4/63880edf443fa70e71d4bfcd/mercy-00.jpg');
+            justify-content: center;
+        }
+
+        #hero::before {
+            background: linear-gradient(to bottom, rgba(15, 25, 35, 0.9), rgba(15, 25, 35, 0.7));
+        }
+
+        /* Сетка героев */
+        #heroes {
+            background-color: var(--ow-darker);
+            padding: 5rem 2rem;
+        }
+
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            width: 100%;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.1) 0%, transparent 70%);
+            transform: translate(25%, 25%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 245, 212, 0.2);
+            border-color: var(--ow-accent);
+        }
+
+        .hero-card:hover::before {
+            opacity: 1;
+        }
+
+        .hero-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 5px rgba(0, 245, 212, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .hero-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--ow-text);
+            font-size: 1.2rem;
+        }
+
+        .hero-card p {
+            font-size: 0.9rem;
+            color: var(--ow-text-secondary);
+        }
+
+        /* Гайды по героям */
+        .hero-guide {
+            background-size: cover;
+            background-position: center;
+            text-align: left;
+            align-items: flex-start;
+            padding: 4rem;
+        }
+
+        .hero-guide::before {
+            background: linear-gradient(to right, var(--ow-overlay) 60%, transparent);
+        }
+
+        #mercy {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta556d4020266a6db/631a8b1eeef3ae0e03c743a2/1600_Mercy.jpg');
+        }
+
+        #moira {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8188c6691a334d73/631a8b17be2fcf0db5eea4bc/1600_Moira.jpg');
+        }
+
+        #brigitte {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf362dee5d41929be/631a8b7feef3ae0e03c743b6/1600_Brigitte.jpg');
+        }
+
+        #ana {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt97ec60cf959e81f3/631a8babe337fa0dc7263beb/1600_Ana.jpg');
+        }
+
+        #baptiste {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7409943072f0d44c/631a8b99f581050de0035dfa/1600_Baptiste.jpg');
+        }
+
+        #zenyatta {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt31b9997e4476de74/631a8a57eef3ae0e03c7438a/1600_Zenyatta.jpg');
+        }
+
+        #lucio {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt77c5cddf632a67d7/631a8b2bf581050de0035dee/1600_Lucio.jpg');
+        }
+
+        #kiriko {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt74033e83230dc856/631a8b34f581050de0035df2/1600_Kiriko.jpg');
+        }
+
+        #lifeweaver {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt94961e7349cf1d7c/641243e4b624bd69a0f705ae/1600_Lifeweaver.jpg');
+        }
+
+        .guide-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            justify-content: space-between;
+        }
+
+        .tips-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2.5rem;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 300px;
+            margin: 1rem 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .maps-container, .counters-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 300px;
+            margin: 1rem 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .tip {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--ow-accent);
+            position: relative;
+        }
+
+        .tip::before {
+            content: '◆';
+            position: absolute;
+            left: -0.7rem;
+            top: 0;
+            color: var(--ow-accent);
+            font-size: 1.2rem;
+        }
+
+        .tip h3 {
+            color: var(--ow-accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .tip p {
+            color: var(--ow-text-secondary);
+            font-size: 1rem;
+        }
+
+        .map-item, .counter-item {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .map-item::before {
+            content: '🗺️';
+            position: absolute;
+            left: -0.5rem;
+        }
+
+        .counter-item::before {
+            content: '⚔️';
+            position: absolute;
+            left: -0.5rem;
+        }
+
+        .map-item strong {
+            color: var(--ow-map);
+        }
+
+        .counter-item strong {
+            color: var(--ow-danger);
+        }
+
+        /* Секция контрпиков */
+        #counters {
+            background-image: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6aed14a0b5424c98/6332e4c5c8a6a20f1e0a8e3a/overwatch-2-heroes-damage.jpg');
+        }
+
+        .counter-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            width: 100%;
+        }
+
+        .counter-item-global {
+            background: rgba(255, 45, 85, 0.1);
+            border: 1px solid var(--ow-danger);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(3px);
+            text-align: left;
+        }
+
+        .counter-item-global:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 45, 85, 0.2);
+        }
+
+        .counter-item-global h3 {
+            color: var(--ow-danger);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        /* Патчноуты */
+        #patches {
+            background-color: var(--ow-darker);
+        }
+
+        .patch-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--ow-accent);
+            padding: 2rem;
+            margin: 1.5rem 0;
+            max-width: 800px;
+            text-align: left;
+            border-radius: 0 8px 8px 0;
+            backdrop-filter: blur(3px);
+        }
+
+        .patch-date {
+            color: var(--ow-accent);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .patch-card ul {
+            list-style-type: none;
+        }
+
+        .patch-card li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--ow-text-secondary);
+        }
+
+        .patch-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--ow-accent);
+        }
+
+        /* Навигационные точки */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .dot::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid var(--ow-accent);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .dot.active {
+            background: var(--ow-accent);
+            transform: scale(1.2);
+        }
+
+        .dot.active::after {
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .nav-dots {
+                display: none;
+            }
+            
+            .hero-guide {
+                padding: 4rem 1.5rem;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .hero-guide::before {
+                background: var(--ow-overlay);
+            }
+            
+            .guide-container {
+                flex-direction: column;
+            }
+            
+            .tips-container, .maps-container, .counters-container {
+                width: 100%;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* Декоративные элементы */
+        .corner-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--ow-accent);
+            opacity: 0.2;
+        }
+
+        .corner-decoration.top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-decoration.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+    </style>
+</head>
+<body style="opacity: 1;">
+    <!-- Навигационные точки -->
+    <div class="nav-dots">
+        <div class="dot" data-section="hero"></div>
+        <div class="dot" data-section="heroes"></div>
+        <div class="dot" data-section="mercy"></div>
+        <div class="dot active" data-section="moira"></div>
+        <div class="dot" data-section="brigitte"></div>
+        <div class="dot" data-section="ana"></div>
+        <div class="dot" data-section="baptiste"></div>
+        <div class="dot" data-section="zenyatta"></div>
+        <div class="dot" data-section="lucio"></div>
+        <div class="dot" data-section="kiriko"></div>
+        <div class="dot" data-section="lifeweaver"></div>
+        <div class="dot" data-section="counters"></div>
+        <div class="dot" data-section="patches"></div>
+    </div>
+
+    <!-- Главный экран -->
+    <section id="hero">
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+        <h1 class="fade-in">Полные гайды по саппортам</h1>
+        <p class="fade-in">Тактики, карты, контрпики и актуальные сборки для Overwatch 2</p>
+        <a href="file:///C:/Users/Anastasia/Desktop/%D1%81%D0%B0%D0%B9%D1%82/home.html#heroes" class="btn fade-in pulse">Выбрать героя</a>
+    </section>
+
+    <!-- Сетка героев -->
+    <section id="heroes">
+        <h2 class="fade-in">Все герои поддержки</h2>
+        <p class="fade-in">Кликните на героя для полного разбора</p>
+        <div class="heroes-grid">
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;mercy&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/icon-portrait.png" alt="Mercy">
+                <h3 class="fade-in">Мерси</h3>
+                <p class="fade-in">Мобильный лекарь</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;moira&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/icon-portrait(1).png" alt="Moira">
+                <h3 class="fade-in">Мойра</h3>
+                <p class="fade-in">Гибридный хилер/ДПС</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;brigitte&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/icon-portrait(2).png" alt="Brigitte">
+                <h3 class="fade-in">Бригитта</h3>
+                <p class="fade-in">Танковая поддержка</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;ana&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/icon-portrait(3).png" alt="Ana">
+                <h3 class="fade-in">Ана</h3>
+                <p class="fade-in">Снайпер-хилер</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;baptiste&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/icon-portrait(4).png" alt="Baptiste">
+                <h3 class="fade-in">Батист</h3>
+                <p class="fade-in">Боевой медик</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;zenyatta&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/icon-portrait(5).png" alt="Zenyatta">
+                <h3 class="fade-in">Дзенъятта</h3>
+                <p class="fade-in">Стеклянная пушка</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;lucio&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/icon-portrait(6).png" alt="Lucio">
+                <h3 class="fade-in">Лусио</h3>
+                <p class="fade-in">Спидбустер</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;kiriko&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/24d1d7bf86c331b3d81b934442ed36fd0121f6815255c6f26f456127fb342d15.png" alt="Kiriko">
+                <h3 class="fade-in">Кирико</h3>
+                <p class="fade-in">Мобильная поддержка</p>
+            </div>
+            <div class="hero-card fade-in" onclick="scrollToSection(&#39;lifeweaver&#39;)">
+                <img src="./Полные гайды по саппортам в Overwatch 2_files/39d4514f1b858bc228035b09d5a74ed41f8eeefc9a0d1873570b216ba04334df.png" alt="Lifeweaver">
+                <h3 class="fade-in">Ткачь жизни</h3>
+                <p class="fade-in">Контроль позиций</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гайд по Мерси -->
+    <section id="mercy" class="hero-guide">
+        <h2 class="fade-in">Мерси: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3 class="fade-in">Основные советы</h3>
+                <div class="tip fade-in">
+                    <h3 class="fade-in">Приоритеты лечения</h3>
+                    <p class="fade-in">Всегда сначала лечите второго саппорта и танка. Усиливайте урон ДПС, когда все в порядке.</p>
+                </div>
+                <div class="tip fade-in">
+                    <h3 class="fade-in">Ангел-хранитель</h3>
+                    <p class="fade-in">Постоянно используйте эту способность для перемещения. Никогда не стойте на месте.</p>
+                </div>
+                <div class="tip fade-in">
+                    <h3 class="fade-in">Воскрешение</h3>
+                    <p class="fade-in">Воскрешайте только в безопасности. Проверяйте КД врагов (например, Хук или Дротик).</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3 class="fade-in">Лучшие карты</h3>
+                <div class="map-item fade-in">
+                    <strong>Джанкертаун</strong> - много укрытий для воскрешений
+                </div>
+                <div class="map-item fade-in">
+                    <strong>Королевская трасса</strong> - вертикальность для полётов
+                </div>
+                <div class="map-item fade-in">
+                    <strong>Непал</strong> - закрытые пространства
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item fade-in">
+                    <strong>Сураваса</strong> - слишком открыто
+                </div>
+                <div class="map-item fade-in">
+                    <strong>Айхенвальд (1-я точка)</strong> - мало укрытий
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3 class="fade-in">Контрпики</h3>
+                <div class="counter-item fade-in">
+                    <strong>Солдат-76</strong> - может сбить с ультом
+                </div>
+                <div class="counter-item fade-in">
+                    <strong>Роковая вдова</strong> - мешает воскрешениям
+                </div>
+                <div class="counter-item fade-in">
+                    <strong>Трейсер</strong> - сложно попасть
+                </div>
+                <h4>Кого контрит Мерси</h4>
+                <div class="counter-item fade-in">
+                    <strong>Райнхардт</strong> - легко усилить урон
+                </div>
+                <div class="counter-item fade-in">
+                    <strong>Эш</strong> - можно уворачиваться от выстрелов
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/mercy/" class="btn fade-in" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Мойре -->
+    <section id="moira" class="hero-guide">
+        <h2 class="fade-in">Мойра: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3 class="fade-in">Основные советы</h3>
+                <div class="tip fade-in">
+                    <h3 class="fade-in">Ресурсы</h3>
+                    <p class="fade-in">Балансируйте между лечением (ЛКМ) и уроном (ПКМ), чтобы не остаться без ресурсов.</p>
+                </div>
+                <div class="tip fade-in">
+                    <h3 class="fade-in">Сфера лечения</h3>
+                    <p class="fade-in">В 90% случаев бросайте сферы лечения. Они ценнее для команды, чем урон.</p>
+                </div>
+                <div class="tip fade-in">
+                    <h3 class="fade-in">Исчезновение</h3>
+                    <p class="fade-in">Используйте только для побега, никогда для атаки без страховки.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3 class="fade-in">Лучшие карты</h3>
+                <div class="map-item fade-in">
+                    <strong>Башня Лицзян</strong> - узкие коридоры
+                </div>
+                <div class="map-item fade-in">
+                    <strong>Храм Анубиса</strong> - закрытые пространства
+                </div>
+                <div class="map-item fade-in">
+                    <strong>Кингс Роу</strong> - хорошие углы для сфер
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item fade-in">
+                    <strong>Гавана</strong> - слишком открыто
+                </div>
+                <div class="map-item fade-in">
+                    <strong>Джанкертаун</strong> - длинные линии обзора
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3 class="fade-in">Контрпики</h3>
+                <div class="counter-item fade-in">
+                    <strong>Заря</strong> - может пережить урон
+                </div>
+                <div class="counter-item fade-in">
+                    <strong>Дзенъятта</strong> - орб раздора опасен
+                </div>
+                <div class="counter-item fade-in">
+                    <strong>Фарра</strong> - вне зоны досягаемости
+                </div>
+                <h4>Кого контрит Мойра</h4>
+                <div class="counter-item fade-in">
+                    <strong>Гэндзи</strong> - сложно отражать сферы
+                </div>
+                <div class="counter-item fade-in">
+                    <strong>Торбьорн</strong> - легко высасывать жизнь
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/moira/" class="btn fade-in" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Бригитте -->
+    <section id="brigitte" class="hero-guide">
+        <h2 class="fade-in">Бригитта: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3>Основные советы</h3>
+                <div class="tip">
+                    <h3>Позиционирование</h3>
+                    <p>Держитесь рядом с танком, но не впереди него. Вдохновение требует ударов, но не заходите слишком далеко.</p>
+                </div>
+                <div class="tip">
+                    <h3>Удар щитом</h3>
+                    <p>Используйте для отступления, а не атаки. Это ваша единственная защита.</p>
+                </div>
+                <div class="tip">
+                    <h3>Ремкомплект</h3>
+                    <p>Всегда оставляйте 1 комплект на экстренный случай. Приоритет - ДПС с флангов.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3>Лучшие карты</h3>
+                <div class="map-item">
+                    <strong>Непал (святилище)</strong> - контроль точки
+                </div>
+                <div class="map-item">
+                    <strong>Башня Лицзян</strong> - закрытые пространства
+                </div>
+                <div class="map-item">
+                    <strong>Близзард Ворлд</strong> - узкие коридоры
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item">
+                    <strong>Джанкертаун(атака)</strong> - длинные дистанции
+                </div>
+                <div class="map-item">
+                    <strong>Риальто</strong> - много открытых пространств
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3>Контрпики</h3>
+                <div class="counter-item">
+                    <strong>Фарра</strong> - атакует с дистанции
+                </div>
+                <div class="counter-item">
+                    <strong>Дзенъятта</strong> - орб раздора опасен
+                </div>
+                <div class="counter-item">
+                    <strong>Райнхардт</strong> - ломает щит
+                </div>
+                <h4>Кого контрит Бригитта</h4>
+                <div class="counter-item">
+                    <strong>Трейсер</strong> - может отбить атаки
+                </div>
+                <div class="counter-item">
+                    <strong>Гэндзи</strong> - щит блокирует атаки
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/brigitte/" class="btn" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Ане -->
+    <section id="ana" class="hero-guide">
+        <h2 class="fade-in">Ана: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3>Основные советы</h3>
+                <div class="tip">
+                    <h3>Позиция</h3>
+                    <p>Держитесь на средней дистанции с обзором на союзников и врагов. Используйте возвышенности.</p>
+                </div>
+                <div class="tip">
+                    <h3>Усыпляющий дротик</h3>
+                    <p>Приберегите для вражеских ультов или диверсантов. Не тратьте попусту.</p>
+                </div>
+                <div class="tip">
+                    <h3>Биотическая граната</h3>
+                    <p>Используйте для усиления лечения танка или блокировки лечения врагов.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3>Лучшие карты</h3>
+                <div class="map-item">
+                    <strong>Гавана</strong> - длинные линии обзора
+                </div>
+                <div class="map-item">
+                    <strong>Джанкертаун</strong> - хорошие позиции для снайпинга
+                </div>
+                <div class="map-item">
+                    <strong>Айхенвальд(2-я точка)</strong> - высоты
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item">
+                    <strong>Непал(деревня)</strong> - много закрытых пространств
+                </div>
+                <div class="map-item">
+                    <strong>Башня Лицзян</strong> - короткие дистанции
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3>Контрпики</h3>
+                <div class="counter-item">
+                    <strong>Гэндзи</strong> - отражает дротики
+                </div>
+                <div class="counter-item">
+                    <strong>Роковая вдова</strong> - блокирует обзор
+                </div>
+                <div class="counter-item">
+                    <strong>Уинстон</strong> - давит с прыжка
+                </div>
+                <h4>Кого контрит Ана</h4>
+                <div class="counter-item">
+                    <strong>Турбосвин</strong> - легко усыпить
+                </div>
+                <div class="counter-item">
+                    <strong>Райнхардт</strong> - граната через щит
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/ana/" class="btn" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Батисту -->
+    <section id="baptiste" class="hero-guide">
+        <h2 class="fade-in">Батист: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3>Основные советы</h3>
+                <div class="tip">
+                    <h3>Исцеляющие заряды</h3>
+                    <p>Цельтесь в пол рядом с союзниками для разлёта. Прямые попадания лечат больше.</p>
+                </div>
+                <div class="tip">
+                    <h3>Поле бессмертия</h3>
+                    <p>Размещайте за укрытием, чтобы враги не могли его быстро уничтожить. Используйте против ультов.</p>
+                </div>
+                <div class="tip">
+                    <h3>Экзо-ботинки</h3>
+                    <p>Заряжайте прыжки в перерывах между боями для занятия высот.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3>Лучшие карты</h3>
+                <div class="map-item">
+                    <strong>Нумбани</strong> - много укрытий для поля
+                </div>
+                <div class="map-item">
+                    <strong>КБ Вольской</strong> - хорошие высоты
+                </div>
+                <div class="map-item">
+                    <strong>Голливуд</strong> - закрытые пространства
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item">
+                    <strong>Илиос(колодец)</strong> - могут сбросить в яму
+                </div>
+                <div class="map-item">
+                    <strong>Непал(святилище)</strong> - мало укрытий
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3>Контрпики</h3>
+                <div class="counter-item">
+                    <strong>Солдат-76</strong> - может сбить с высоты
+                </div>
+                <div class="counter-item">
+                    <strong>Эш</strong> - динамит сжигает поле
+                </div>
+                <div class="counter-item">
+                    <strong>Сигма</strong> - ульт игнорирует бессмертие
+                </div>
+                <h4>Кого контрит Батист</h4>
+                <div class="counter-item">
+                    <strong>Дзенъятта</strong> - может перехилить орб раздора
+                </div>
+                <div class="counter-item">
+                    <strong>Райнхардт</strong> - поле спасает от землетрясения
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/baptiste/" class="btn" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Дзенъятте -->
+    <section id="zenyatta" class="hero-guide">
+        <h2 class="fade-in">Дзенъятта: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3>Основные советы</h3>
+                <div class="tip">
+                    <h3>Приоритет сфер</h3>
+                    <p>Гармонию давайте фланкерам, Дискорд - на фокус врага.</p>
+                </div>
+                <div class="tip">
+                    <h3>Позиция</h3>
+                    <p>Держитесь далеко, но рядом с укрытием. Хрупкий, но смертоносный на дистанции.</p>
+                </div>
+                <div class="tip">
+                    <h3>Трансцендентность</h3>
+                    <p>Используйте против вражеских ультов (как Клинок Дракона или Гравитационный колодец), а не просто для лечения.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3>Лучшие карты</h3>
+                <div class="map-item">
+                    <strong>Гавана</strong> - длинные линии обзора
+                </div>
+                <div class="map-item">
+                    <strong>Джанкертаун</strong> - хорошие позиции для стрельбы
+                </div>
+                <div class="map-item">
+                    <strong>Айхенвальд(2-я точка)</strong> - защитные позиции
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item">
+                    <strong>Непал(деревня)</strong> - много ближнего боя
+                </div>
+                <div class="map-item">
+                    <strong>Башня Лицзян</strong> - короткие дистанции
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3>Контрпики</h3>
+                <div class="counter-item">
+                    <strong>Гэндзи</strong> - быстро убивает
+                </div>
+                <div class="counter-item">
+                    <strong>Трейсер</strong> - сложно попасть
+                </div>
+                <div class="counter-item">
+                    <strong>Уинстон</strong> - давит с прыжка
+                </div>
+                <h4>Кого контрит Дзенъятта</h4>
+                <div class="counter-item">
+                    <strong>Турбосвин</strong> - орб раздора + фокус
+                </div>
+                <div class="counter-item">
+                    <strong>Ориса</strong> - пробивает щит
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/zenyatta/" class="btn" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Лусио -->
+    <section id="lucio" class="hero-guide">
+        <h2 class="fade-in">Лусио: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3>Основные советы</h3>
+                <div class="tip">
+                    <h3>Ускорение</h3>
+                    <p>Используйте для атаки/отступления. По умолчанию - лечение.</p>
+                </div>
+                <div class="tip">
+                    <h3>Катание по стенам</h3>
+                    <p>Тренируйтесь, чтобы стать неуловимым. Используйте для манёвров.</p>
+                </div>
+                <div class="tip">
+                    <h3>Звуковой барьер</h3>
+                    <p>Используйте в ответ на вражеские ульты, а не заранее.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3>Лучшие карты</h3>
+                <div class="map-item">
+                    <strong>Илиос(колодец)</strong> - можно сбрасывать в яму
+                </div>
+                <div class="map-item">
+                    <strong>Башня Лицзян</strong> - много стен для катания
+                </div>
+                <div class="map-item">
+                    <strong>Непал(святилище)</strong> - контроль точки
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item">
+                    <strong>Гавана</strong> - слишком открыто
+                </div>
+                <div class="map-item">
+                    <strong>Джанкертаун(атака)</strong> - длинные дистанции
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3>Контрпики</h3>
+                <div class="counter-item">
+                    <strong>Кэссиди</strong> - может сбить с ультом
+                </div>
+                <div class="counter-item">
+                    <strong>Симметра</strong> - турели замедляют
+                </div>
+                <div class="counter-item">
+                    <strong>Мэй</strong> - замораживает
+                </div>
+                <h4>Кого контрит Лусио</h4>
+                <div class="counter-item">
+                    <strong>Райнхардт</strong> - помогает избегать ударов
+                </div>
+                <div class="counter-item">
+                    <strong>Жнец</strong> - сложно попасть
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/lucio/" class="btn" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Кирико -->
+    <section id="kiriko" class="hero-guide">
+        <h2 class="fade-in">Кирико: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3>Основные советы</h3>
+                <div class="tip">
+                    <h3>Лечащие офуда</h3>
+                    <p>Учитывайте время полёта. Предварительно лечите союзников, которые вот-вот получат урон.</p>
+                </div>
+                <div class="tip">
+                    <h3>Быстрый шаг</h3>
+                    <p>Используйте для побега или быстрой помощи союзнику.</p>
+                </div>
+                <div class="tip">
+                    <h3>Сузу</h3>
+                    <p>Приберегите для снятия негативных эффектов (как Анти-Хил) или спасения от смертельного урона.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3>Лучшие карты</h3>
+                <div class="map-item">
+                    <strong>Королевская трасса</strong> - вертикальность для телепортов
+                </div>
+                <div class="map-item">
+                    <strong>Нумбани</strong> - много укрытий
+                </div>
+                <div class="map-item">
+                    <strong>Голливуд</strong> - закрытые пространства
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item">
+                    <strong>Сураваса</strong> - слишком открыто
+                </div>
+                <div class="map-item">
+                    <strong>Гавана(3-я точка)</strong> - длинные дистанции
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3>Контрпики</h3>
+                <div class="counter-item">
+                    <strong>Уинстон</strong> - может прыгать за телепортами
+                </div>
+                <div class="counter-item">
+                    <strong>Солдат-76</strong> - может сбить с ультом
+                </div>
+                <div class="counter-item">
+                    <strong>Трейсер</strong> - сложно попасть
+                </div>
+                <h4>Кого контрит Кирико</h4>
+                <div class="counter-item">
+                    <strong>Ана</strong> - может очистить анти-хил
+                </div>
+                <div class="counter-item">
+                    <strong>Райнхардт</strong> - может пройти сквозь щит
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/kiriko/" class="btn" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Гайд по Лайфвиверу -->
+    <section id="lifeweaver" class="hero-guide">
+        <h2 class="fade-in">Лайфвивер: полный разбор</h2>
+        <div class="guide-container">
+            <div class="tips-container fade-in">
+                <h3>Основные советы</h3>
+                <div class="tip">
+                    <h3>Лечащий цветок</h3>
+                    <p>Заряжайте лечение полностью для максимальной эффективности.</p>
+                </div>
+                <div class="tip">
+                    <h3>Жизненная хватка</h3>
+                    <p>Спасайте зашедших слишком далеко, но общайтесь, чтобы не мешать их действиям.</p>
+                </div>
+                <div class="tip">
+                    <h3>Лепестковая платформа</h3>
+                    <p>Создавайте союзникам высоты или блокируйте узкие проходы.</p>
+                </div>
+            </div>
+            
+            <div class="maps-container fade-in">
+                <h3>Лучшие карты</h3>
+                <div class="map-item">
+                    <strong>Айхенвальд(1-я точка)</strong> - можно поднимать союзников
+                </div>
+                <div class="map-item">
+                    <strong>Риальто</strong> - много возможностей для спасения
+                </div>
+                <div class="map-item">
+                    <strong>Кингс Роу</strong> - узкие коридоры
+                </div>
+                <h4>Худшие карты</h4>
+                <div class="map-item">
+                    <strong>Непал(святилище)</strong> - мало возможностей для платформ
+                </div>
+                <div class="map-item">
+                    <strong>Илиос(колодец)</strong> - могут сбросить в яму
+                </div>
+            </div>
+            
+            <div class="counters-container fade-in">
+                <h3>Контрпики</h3>
+                <div class="counter-item">
+                    <strong>Симметра</strong> - турели разрушают платформы
+                </div>
+                <div class="counter-item">
+                    <strong>Фарра</strong> - атакует с дистанции
+                </div>
+                <div class="counter-item">
+                    <strong>Трейсер</strong> - может быстро убить
+                </div>
+                <h4>Кого контрит Лайфвивер</h4>
+                <div class="counter-item">
+                    <strong>Турбосвин</strong> - может спасти от крюка
+                </div>
+                <div class="counter-item">
+                    <strong>Ориса</strong> - может переместить из ульты
+                </div>
+            </div>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/heroes/lifeweaver/" class="btn" target="_blank">Официальная страница</a>
+    </section>
+
+    <!-- Общие контрпики -->
+    <section id="counters">
+        <h2 class="fade-in">Как играть против саппортов</h2>
+        <p class="fade-in">Глобальные стратегии противодействия поддержке</p>
+        <div class="counter-list">
+            <div class="counter-item-global fade-in">
+                <h3>Фокусировка</h3>
+                <p>Саппорты - приоритетные цели. Убив их первыми, вы лишаете команду врага лечения и утилити.</p>
+            </div>
+            <div class="counter-item-global fade-in">
+                <h3>Контроль кд</h3>
+                <p>Следите за ключевыми способностями (ангел-хранитель, исчезновение) и атакуйте, когда они на кд.</p>
+            </div>
+            <div class="counter-item-global fade-in">
+                <h3>Фланги</h3>
+                <p>Используйте героев с мобильностью (Трейсер, Гэндзи) для атак с неожиданных направлений.</p>
+            </div>
+            <div class="counter-item-global fade-in">
+                <h3>Анти-хил</h3>
+                <p>Граната Аны или ульт Жнеца значительно снижают эффективность лечения.</p>
+            </div>
+            <div class="counter-item-global fade-in">
+                <h3>Дальний бой</h3>
+                <p>Многие саппорты слабы против снайперов (Роковая вдова, Эш) и дальних ДПС.</p>
+            </div>
+            <div class="counter-item-global fade-in">
+                <h3>Быстрое убийство</h3>
+                <p>Используйте комбо-урона (например, Хандзо + Заря), чтобы убивать саппортов до того, как их вылечат.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Патчноуты -->
+    <section id="patches">
+        <h2 class="fade-in">Последние изменения</h2>
+        <p class="fade-in">Актуальные правки для героев поддержки</p>
+        <div class="patch-card fade-in">
+            <div class="patch-date">Сезон 15 (Март 2025)</div>
+            <ul>
+                <li>Мерси: Время применения мгновенного исцеления уменьшено с 0,875 до 0,4 секунды.</li>
+                <li>Бригитта: Восстановление барьера - после «Удара щитом» Бригитта получает 30% к скорости передвижения на 1,5 секунды.</li>
+                <li>Батист: Автоматизированное лечение - кол-во восполняемого при каждом выстреле здоровья увеличено с 25 до 30 ед. Стремительный штурм - скорость атаки увеличена с 20% до 30%.</li>
+                <li>Лайфвивер: Суперцветение - наносимый урон увеличен с 30 до 40 ед. Кол-во попаданий, необходимое для срабатывания, увеличено с 16 до 20. Период времени, в течение которого необходимо попасть по врагу для срабатывания эффекта, увеличен с 1,5 до 2,5 секунд. Ткание жизни - бонус к исцелению «Целебным цветком» увеличен с 20 до 30 ед.</li>
+            </ul>
+        </div>
+        <a href="https://overwatch.blizzard.com/ru-ru/news/patch-notes/" class="btn fade-in" target="_blank">Полные патчноуты</a>
+    </section>
+
+    <script>
+        // Плавный скролл для навигационных точек
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Функция скролла к секции
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Обновление активной точки при скролле
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    const sectionId = section.getAttribute('id');
+                    document.querySelectorAll('.dot').forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('data-section') === sectionId) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Анимация появления элементов при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('h1, h2, h3, p, .btn, .hero-card, .tip, .map-item, .counter-item, .patch-card, .counter-item-global').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Плавное появление всего контента при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+
+</body></html>
